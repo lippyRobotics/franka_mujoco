@@ -27,6 +27,39 @@ Create a virtual environment for python 3.10:
 ```
 conda create --name fm_env python==3.10
 ```
+
+#### If Installing using WSL in Windows:
+First, install essential tools you will need to compile code:
+```
+sudo apt update && sudo apt install –y build-essential gcc python3-dev
+```
+
+Move to your user folder:
+```
+cd
+```
+
+Download Miniconda in WSL:
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+Install Miniconda:
+```
+sh Miniconda3-latest-Linux-x86_64.shEnter ”yes” where requested
+```
+
+Refresh your WSL terminal to note the changes by sources (i.e. loading) the new instructions:
+```
+source .bashrc
+```
+
+Before we continue with the franka mujoco installation, we will also need a few python packages:
+```
+python –m pip install –upgrade pip setuptools wheel
+```
+
+We are now ready to proceed:
+
 ### Activate your environment:
 ```
 conda activate fm_env

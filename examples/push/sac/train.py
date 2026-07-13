@@ -7,9 +7,13 @@ from panda_mujoco_gym.envs.push import FrankaPushEnv
 from stable_baselines3 import HerReplayBuffer, SAC
 from datetime import datetime
 
+from pathlib import Path
+
+log_dir = Path.home() / "training_logs"
+log_dir.mkdir(parents=True, exist_ok=True)
+
 TIMESTEPS = 500_000
 DATETIME = datetime.now()
-LOG_DIR = f"/home/bison/code/franka_mujoco/logs/franka_baselines/push/SAC/franka_push_sac_test_{DATETIME.strftime('%Y-%m-%d_%H-%M-%S')}"
 
 env = gym.make("FrankaPushSparse-v0", render_mode='human') # to visualize use render_mode="human"
 
@@ -22,7 +26,7 @@ model = SAC(
         n_sampled_goal=4,
         goal_selection_strategy="future",
     ),
-    tensorboard_log=LOG_DIR,
+    tensorboard_log=log_dir,
     verbose=1,
     buffer_size=int(1e6),
     learning_rate=1e-3,
@@ -33,4 +37,4 @@ model = SAC(
 
 # set step count and learn. Then save model.
 model.learn(TIMESTEPS)
-model.save(f"/home/student/data/franka_baselines/push/SAC/models/franka_push_sac_test{DATETIME.strftime('%Y-%m-%d_%H:%M:%S')}")
+model.save(f"/home/data/data/franka_baselines/push/SAC/models/franka_push_sac_test{DATETIME.strftime('%Y-%m-%d_%H:%M:%S')}")

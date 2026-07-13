@@ -45,9 +45,10 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 Install Miniconda:
 ```
-sh Miniconda3-latest-Linux-x86_64.shEnter ”yes” where requested
+sh Miniconda3-latest-Linux-x86_64.sh
 ```
-
+Enter ”yes” where requested.
+ 
 Refresh your WSL terminal to note the changes by sources (i.e. loading) the new instructions:
 ```
 source .bashrc

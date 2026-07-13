@@ -47,7 +47,8 @@ Install Miniconda:
 ```
 sh Miniconda3-latest-Linux-x86_64.sh
 ```
-Enter ”yes” where requested.
+Enter ”yes” where requested.
+
  
 Refresh your WSL terminal to note the changes by sources (i.e. loading) the new instructions:
 ```
@@ -59,7 +60,12 @@ Before we continue with the franka mujoco installation, we will also need a few 
 python –m pip install –upgrade pip setuptools wheel
 ```
 
-We are now ready to proceed:
+And:
+```
+python -m pip install --only-binary=:all: psutil
+```
+
+We are now ready to proceed.
 
 ### Activate your environment:
 ```
